@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-
 namespace PDWProject.Models
 {
     public class Account
@@ -16,4 +15,5 @@ namespace PDWProject.Models
 
         public string Address { get; set; }
     }
+
 }

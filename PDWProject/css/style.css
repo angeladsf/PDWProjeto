@@ -867,6 +867,14 @@ i.twt:hover{
 	left:38%;
 	display: none;
 }
+
+.produto {
+    width: 100%;
+    object-fit: cover;
+    height:auto;
+}
+
+
 .veiw-img-mark a{
 	background: #5A0F16;
 	padding: 10px;

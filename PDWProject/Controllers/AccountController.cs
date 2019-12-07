@@ -44,7 +44,10 @@ namespace PDWProject.Controllers
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                FormsAuthentication.SetAuthCookie(acc.Email, true);
+                HttpCookie myCookie = new HttpCookie("myCookie");
+                myCookie.Values.Add("email", acc.Email);
+                myCookie.Expires = DateTime.Now.AddHours(12);
+                Response.Cookies.Add(myCookie);
                 con.Close();
                 return View("Index");
             }
@@ -80,5 +83,12 @@ namespace PDWProject.Controllers
             FormsAuthentication.SignOut();
             Response.Redirect("/Account/Login");
         }
+
+        [HttpGet]
+        public ActionResult Products()
+        {
+            return View();
+        }
+
     }
 }

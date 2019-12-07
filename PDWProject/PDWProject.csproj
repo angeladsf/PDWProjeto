@@ -89,6 +89,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CakeInfo.aspx" />
+    <Content Include="Checkout.aspx" />
     <Content Include="Global.asax" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\etalage.css" />
@@ -308,15 +310,37 @@
     <Content Include="js\jquery.flexisel.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\responsiveslides.min.js" />
+    <Content Include="Products.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CakeInfo.aspx.cs">
+      <DependentUpon>CakeInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CakeInfo.aspx.designer.cs">
+      <DependentUpon>CakeInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -331,7 +355,6 @@
     <Content Include="Views\Account\Create.cshtml" />
     <Content Include="Views\Account\Error.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
