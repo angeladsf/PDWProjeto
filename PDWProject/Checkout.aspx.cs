@@ -65,38 +65,36 @@ namespace PDWProject
             con.Open();
             cmd.Connection = con;
             
-            if (Request.QueryString.GetValues(null)?.Contains("cakeid")??true)
+            if (Request.QueryString["cakeid"] != null)
             {
                 insertBolo();
+                Response.Redirect("~/checkout.aspx");
             }
 
             try
             {
-                cmd.CommandText = "select * from carrinho, tipos_bolos where email = " + Request.Cookies["myCookie"];
+                HttpCookie myCookie = Request.Cookies["myCookie"];
+                
+                    cmd.CommandText = "select name, price, cakeid, email, quant,id_bolo, description from carrinho, tipos_bolos where email = '" + myCookie.Values["email"] + "' and cakeid = id_bolo;";
                 dr = cmd.ExecuteReader();
 
+                float totalcart = 0;
                 while (dr.Read())
                 {
+                    float price = float.Parse(dr["quant"].ToString()) * float.Parse(dr["price"].ToString());
                     addToCart.Append("<h5>" + dr["quant"].ToString()+ " unidades de " + dr["name"].ToString() + " por "
-                        + dr["carrinho.Price"].ToString() + "€"
+                        + price.ToString() + "€"
                         + "<br>Descrição:" + dr["description"].ToString()
-                        + "</h5><br><br><form action = 'buy.aspx' method = 'GET' >" 
+                        + "</h5><form action = 'buy.aspx' method = 'GET' >" 
                         + "<input type='submit' value = 'Comprar'></form>"
-                        + "<form action = 'remove.aspx' method = 'GET' ><input type='submit' value = 'Remover Pedido'></form>");
-                }
-
-                float totalcart = 0;
-                for (int i = 0; i < items.Count; i++) {
-                    string[] a = items[i].Split(',');
-                    totalcart += float.Parse(a[2]);
+                        + "<form action = 'remove.aspx' method = 'GET' ><input type='submit' value = 'Remover Pedido'></form><br><br>");
+                    totalcart += price;
                 }
 
                 build.Append("<p><span class='cart'></span>Cart<label>" + totalcart + "€</label></p>");
                 con.Close();
                 cart.Controls.Add(new Literal { Text = build.ToString() });
                 cart_items.Controls.Add(new Literal { Text = addToCart.ToString() });
-
-
             }
             catch
             {
