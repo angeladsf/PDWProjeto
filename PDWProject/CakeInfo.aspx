@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Sweet-cakes Website Template | Home :: w3layouts</title>
+		<title>Sweet Cakes</title>
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -31,9 +31,9 @@
 
         $('#etalage').etalage({
             thumb_image_width: 300,
-            thumb_image_height: 400,
+            thumb_image_height: 200,
             source_image_width: 800,
-            source_image_height: 1000,
+            source_image_height: 600,
             show_hint: true,
             click_callback: function (image_anchor, instance_id) {
                 alert('Callback example:\nYou clicked on an image with the anchor: "' + image_anchor + '"\n(in Etalage instance: "' + instance_id + '")');
@@ -51,10 +51,8 @@
 			<div class="container">
 				<div class="top-header-left">
 					<ul>
-						<li><a href="myaccount.html">My Account</a></li>
 						<li><a href="checkout.aspx">Checkout</a></li>
-						<div class="clearfix"> </div>
-					</ul>
+						
 				</div>
 				<div class="top-header-center">
 				</div>
@@ -66,7 +64,7 @@
 								<input type="submit" value="" />
 							</form>
 						</li>
-						<li><a href="/Account/Login">Logout</a></li>
+						<li><a style="border-right:none" href="/Account/Login">Sair</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -79,9 +77,9 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li><a href="/Account/Index">Home</a></li>
-					<li class="active"><a href="products.aspx">products</a></li>
-					<li><a href="about.html">about</a></li>
+					<li><a href="/Account/Index">Início</a></li>
+					<li class="active"><a href="products.aspx">Produtos</a></li>
+					<li><a href="about.html">Sobre Nós</a></li>
 					<div class="clearfix"> </div>
 				</ul>
 			</div>	
@@ -122,11 +120,12 @@
                       
 
 					<div class="det_nav1">
-								<h4>Descrição :</h4>
+								<h5 style="font-size:16px;color: #555555;text-transform: uppercase;">Descrição :</h5>
                                 <span>Alterações no bolo devido a alergias, decoração especial, forma, etc</span>
 								<form id ="form" method="get" action="Checkout.aspx">
-                                    <textarea name="description" rows="5" cols="50"></textarea><br><br />
-                                    <h4>Quantidade :</h4>
+                                    <textarea name="description" rows="3" cols="55" maxlength="300"></textarea><br><br />
+                                    <h5 style="font-size:16px;color: #555555;text-transform: uppercase;">Quantidade :</h5>
+                                    
                                     <select name="quantidade">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -135,7 +134,7 @@
                                     <option value="5">5</option>
                                     <asp:PlaceHolder ID ="sendcake" runat="server"></asp:PlaceHolder>
                                   </select><br><br>
-						            <input type="submit" value ="Adicionar ao carrinho"/>
+						            <input type="submit" class='new_input' value ="Adicionar ao carrinho"/>
 								</form>
                         <script>
                             var url = new URL(url_string);
@@ -152,8 +151,9 @@
           	    <div class="single-bottom1">
 					<h6>Detalhes</h6>
 					<p class="prod-desc">O pagamento da encomenda deverá ser efetuado durante a entrega ao domicílio. A encomenda é entregue o mais depressa possível a horas a margar com
-                        o cliente através de uma chamada telefónica. Caso o cliente não esteja presente na entrega, a encomenda será considerada entregue e não será possível efetuar reembolso.
-                        O cliente poderá alterar a data de entrega no máximo 12 horas antes até a hora marcada original.
+                        o cliente através de email. Caso o cliente não esteja presente na entrega, a encomenda será considerada entregue e não será possível efetuar reembolso.
+                        O cliente poderá alterar a data de entrega no máximo 12 horas antes até a hora marcada original. O cliente tem até 12 horas para cancelar uma encomenda após a compra 
+                        da mesma.
 					</p>
 				</div>
 		   	  </div>

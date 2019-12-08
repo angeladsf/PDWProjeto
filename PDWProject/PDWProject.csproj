@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="buy.aspx" />
     <Content Include="CakeInfo.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="Global.asax" />
@@ -311,10 +312,18 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\responsiveslides.min.js" />
     <Content Include="Products.aspx" />
+    <Content Include="remove.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="buy.aspx.cs">
+      <DependentUpon>buy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="buy.aspx.designer.cs">
+      <DependentUpon>buy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CakeInfo.aspx.cs">
       <DependentUpon>CakeInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -342,6 +351,13 @@
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="remove.aspx.cs">
+      <DependentUpon>remove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="remove.aspx.designer.cs">
+      <DependentUpon>remove.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

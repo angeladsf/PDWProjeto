@@ -34,7 +34,7 @@ namespace PDWProject
                 string precos = "";
                 string ids = "";
 
-                table.Append("<div class='best-seller'><div class='container'><div class='biseller-info'><h3 class='new-models'>varieties</h3><ul id = 'flexiselDemo1' >");
+                table.Append("<div class='best-seller'><div class='container'><div class='biseller-info'><h3 class='new-models'>Variedades</h3><ul id = 'flexiselDemo1' >");
                 while (dr.Read())
                 { 
                     table.Append("<li><div class='biseller-column'>");
@@ -44,7 +44,7 @@ namespace PDWProject
                     table.Append("</h4><p>");
                     table.Append(dr["price"].ToString());
                     table.Append("</p></div>");
-                    table.Append("<a href ='cakeinfo.aspx?cakeid=" + dr["cakeid"] + "'><button class='add2cart'><span>| Add to Cart</span></button></a></div></li>");
+                    table.Append("<a href ='cakeinfo.aspx?cakeid=" + dr["cakeid"] + "'><button class='add2cart'><span>Adicionar ao Carrinho</span></button></a></div></li>");
                 }
                 table.Append("</ul></div></div>");
                 con.Close();

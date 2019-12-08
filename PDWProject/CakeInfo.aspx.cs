@@ -49,11 +49,11 @@ namespace PDWProject
                 while (dr.Read())
                 {
                     info.Append("<h3>" + dr["name"].ToString() + "</h3>");
-                    info.Append("<p>"+dr["price"].ToString() + "€ /unidade</p>");
-                    info.Append("<div class = 'det_nav'><h4>Ingredientes:</h4><h5>" + dr["ListaIngrediente"].ToString() + "</h5></div>");
-                    img.Append("<li style='height:100%; height:auto;'><img class='etalage_thumb_image' src=" + dr["imagepath"].ToString() + " class='img-responsive'/>");
-                    img.Append("<li><img class='etalage_source_image' src=" + dr["imagepath"].ToString() + " class='img-responsive'/>");
+                    info.Append("<p>"+dr["price"].ToString() + "€ <font color='#aaa' size='4'>/unidade</font></p>");
+                    img.Append("<li><img class='etalage_thumb_image' style='height:50px;' src=" + dr["imagepath"].ToString() + " class='img-responsive'/>");
+                    img.Append("<li><img class='etalage_source_image' style='height:50px;' src=" + dr["imagepath"].ToString() + " class='img-responsive'/>");
                     cake.Append("<input type = 'text' name = 'cakeid' style='display:none' value='" + getID()+"' />");
+                    img.Append("</li><div class='clearfix'> </div></ul><div class = 'det_nav'><h4>Ingredientes:</h4><h5>" + dr["ListaIngrediente"].ToString() + "</h5></div>");
                 }
                 con.Close();
                 PlaceHolder.Controls.Add(new Literal { Text = info.ToString() });

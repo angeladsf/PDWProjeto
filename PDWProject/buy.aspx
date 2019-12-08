@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Products.aspx.cs" Inherits="PDWProject.Products1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buy.aspx.cs" Inherits="PDWProject.buy" %>
 
 <!DOCTYPE html>
 
@@ -14,6 +14,7 @@
    		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
+		<script src="js/jquery.easydropdown.js"></script>
 		<!----webfonts--->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600' rel='stylesheet' type='text/css'>
 		<!---//webfonts--->
@@ -25,7 +26,7 @@
 			<div class="container">
 				<div class="top-header-left">
 					<ul>
-						<li><a href="checkout.aspx">Checkout</a></li>
+						<li class="active"><a href ="checkout.aspx">Checkout</a></li>
 						<div class="clearfix"> </div>
 					</ul>
 				</div>
@@ -39,9 +40,10 @@
 								<input type="submit" value="" />
 							</form>
 						</li>
-						<li><a href="Account/Login" style ="border-right:none;">Sair</a></li>
+						<li><a href="Account/Login">Sair</a></li>
 					</ul>
 				</div>
+				<div class="clearfix"> </div>
 			</div>
 		</div>
 		<!-- /top-header -->
@@ -51,9 +53,9 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li><a href="Account/Index">Início</a></li>
-					<li class="active"><a href="Products.aspx">Produtos</a></li>
-					<li><a href="about.html">Sobre Nós</a></li>
+					<li class="active"><a href="Account/Index">Início</a></li>
+					<li><a href="products.aspx">Produtos</a></li>
+					<li><a href="about.html">Soubre Nós</a></li>
 					<div class="clearfix"> </div>
 				</ul>
 			</div>	
@@ -75,77 +77,13 @@
 			</div>
 		</div>
 		<!-- /main-menu -->
-	<!-- service -->
-<div class="biseller-info">
-<div class="container">
-<h2>Produtos</h2>
-
-<asp:PlaceHolder ID ="PlaceHolder1" runat="server"></asp:PlaceHolder>
-</div>
-</div>
-</div>
-
-<script type="text/javascript">
-    $(window).load(function () {
-        $("#flexiselDemo3").flexisel({
-            visibleItems: 4,
-            animationSpeed: 1000,
-            autoPlay: false,
-            autoPlaySpeed: 3000,
-            pauseOnHover: true,
-            enableResponsiveBreakpoints: true,
-            responsiveBreakpoints: {
-                portrait: {
-                    changePoint: 480,
-                    visibleItems: 1
-                },
-                landscape: {
-                    changePoint: 640,
-                    visibleItems: 2
-                },
-                tablet: {
-                    changePoint: 768,
-                    visibleItems: 3
-                }
-            }
-        });
-
-    });
-			   </script>
-			   <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-			
-			<script type="text/javascript">
-                $(window).load(function () {
-                    $("#flexiselDemo1").flexisel({
-                        visibleItems: 4,
-                        animationSpeed: 1000,
-                        autoPlay: true,
-                        autoPlaySpeed: 3000,
-                        pauseOnHover: true,
-                        enableResponsiveBreakpoints: true,
-                        responsiveBreakpoints: {
-                            portrait: {
-                                changePoint: 480,
-                                visibleItems: 1
-                            },
-                            landscape: {
-                                changePoint: 640,
-                                visibleItems: 2
-                            },
-                            tablet: {
-                                changePoint: 768,
-                                visibleItems: 3
-                            }
-                        }
-                    });
-
-                });
-			   </script>
-			   <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-			<div class="clearfix"></div>
-
-
-
+	<!---start-content----->
+	<div class="check-out">
+         <div class="container">
+             <h4 class='title'>Compra efetuada com sucesso!</h4>
+             <p>Tens até 12h para cancelares a compra.</p>
+    	   </div>
+		</div>
 	<!-- footer -->
 	<div class="footer">
 		<div class="container">

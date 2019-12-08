@@ -44,6 +44,12 @@ namespace PDWProject.Controllers
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
+
+                if (Request.Cookies["email"] != null)
+                {
+                    Response.Cookies["email"].Expires = DateTime.Now.AddDays(-1);
+
+                }
                 HttpCookie myCookie = new HttpCookie("myCookie");
                 myCookie.Values.Add("email", acc.Email);
                 myCookie.Expires = DateTime.Now.AddHours(12);
@@ -68,7 +74,7 @@ namespace PDWProject.Controllers
                 cmd.CommandText = "insert into cliente(name, password, email, address)  values('" + acc.Username + "', '" + acc.Password + "', '" + acc.Email + "', '" + acc.Address + "');";
                 dr = cmd.ExecuteReader();
                 con.Close();
-                return View("/Account/Login");
+                return View("Login");
 
             }
             catch{

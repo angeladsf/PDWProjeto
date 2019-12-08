@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Sweet-cakes Website Template | Home :: w3layouts</title>
+		<title>Sweet Cakes</title>
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -26,7 +26,6 @@
 			<div class="container">
 				<div class="top-header-left">
 					<ul>
-						<li><a href="myaccount.html">My Account</a></li>
 						<li class="active"><a>Checkout</a></li>
 						<div class="clearfix"> </div>
 					</ul>
@@ -42,7 +41,7 @@
 								<input type="submit" value="" />
 							</form>
 						</li>
-						<li><a href="Account/Login">Logout</a></li>
+						<li><a style="border-right:none;" href="Account/Login">Sair</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -55,9 +54,9 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li class="active"><a href="Account/Index">Home</a></li>
-					<li><a href="products.aspx">products</a></li>
-					<li><a href="about.html">about</a></li>
+					<li class="active"><a href="Account/Index">Início</a></li>
+					<li><a href="products.aspx">Produtos</a></li>
+					<li><a href="about.html">Sobre Nós</a></li>
 					<div class="clearfix"> </div>
 				</ul>
 			</div>	
@@ -82,7 +81,7 @@
 	<!---start-content----->
 	<div class="check-out">
          <div class="container">
-             <h4 class='title'>Carrinho de Compras</h4>
+             <h2 class='title'>Carrinho de Compras</h2><br>
              <asp:PlaceHolder ID ="cart_items" runat="server"></asp:PlaceHolder>
     	   </div>
 		</div>

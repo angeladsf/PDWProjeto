@@ -75,23 +75,26 @@ namespace PDWProject
             {
                 HttpCookie myCookie = Request.Cookies["myCookie"];
                 
-                    cmd.CommandText = "select name, price, cakeid, email, quant,id_bolo, description from carrinho, tipos_bolos where email = '" + myCookie.Values["email"] + "' and cakeid = id_bolo;";
+                cmd.CommandText = "select id, name, price, cakeid, carrinho.email, imagepath, quant,id_bolo, description from carrinho" +
+                    " inner join tipos_bolos on cakeid = id_bolo where carrinho.email = '" 
+                    + myCookie.Values["email"] + "' and id not in (select id_kart from compra)";
                 dr = cmd.ExecuteReader();
 
                 float totalcart = 0;
                 while (dr.Read())
                 {
                     float price = float.Parse(dr["quant"].ToString()) * float.Parse(dr["price"].ToString());
+                    addToCart.Append("<img style='float:left; width:150px; height:auto; margin-right:10px;' src='" + dr["ImagePath"].ToString() + "' alt=''>");
                     addToCart.Append("<h5>" + dr["quant"].ToString()+ " unidades de " + dr["name"].ToString() + " por "
                         + price.ToString() + "€"
-                        + "<br>Descrição:" + dr["description"].ToString()
-                        + "</h5><form action = 'buy.aspx' method = 'GET' >" 
-                        + "<input type='submit' value = 'Comprar'></form>"
-                        + "<form action = 'remove.aspx' method = 'GET' ><input type='submit' value = 'Remover Pedido'></form><br><br>");
+                        + "<br><div style='width:80%; word-wrap:break-word;'>Descrição:" + dr["description"].ToString() + "</div>"
+                        + "</h5><form style='display:inline;' action = 'buy.aspx' method = 'GET' >" 
+                        + "<input style='display:none;' type='text' name = 'id' value = '"+dr["id"].ToString() +"'/><input class = 'new_input' type='submit' value = 'Comprar'></form>"
+                        + "&nbsp&nbsp<form style='display:inline;' action = 'remove.aspx' method = 'GET' ><input style='display:none;' type='text' name = 'id' value = '" + dr["id"].ToString() + "'/><input type='submit' class = 'new_input' value = 'Remover Pedido'></form><br><br>");
                     totalcart += price;
                 }
 
-                build.Append("<p><span class='cart'></span>Cart<label>" + totalcart + "€</label></p>");
+                build.Append("<p><span class='cart'></span>Carrinho<label>" + totalcart + "€</label></p>");
                 con.Close();
                 cart.Controls.Add(new Literal { Text = build.ToString() });
                 cart_items.Controls.Add(new Literal { Text = addToCart.ToString() });

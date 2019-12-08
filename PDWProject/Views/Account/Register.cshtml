@@ -13,7 +13,6 @@
             </ul>
         </div>
         <div class="top-header-center">
-            <p><span class="cart"> </span>Cart<label>$5256</label></p>
         </div>
         <div class="top-header-right">
             <ul>
@@ -23,8 +22,8 @@
                         <input type="submit" value="" />
                     </form>
                 </li>
-                <li><a href="/Account/Login">Login</a></li>
-                <li class="active"><a href="/Account/Register">Register</a></li>
+                <li><a href="/Account/Login">Entrar</a></li>
+                <li class="active"><a href="/Account/Register">Registar</a></li>
             </ul>
         </div>
         <div class="clearfix"> </div>
@@ -37,6 +36,9 @@
         <div class="head-nav">
             <span class="menu"> </span>
             <ul>
+                <li class="active"><a href="Index">Início</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Sobre Nós</a></li>
                 <div class="clearfix"> </div>
             </ul>
         </div>
@@ -64,41 +66,39 @@
             <div class="register">
                 <form action="VerifyRegister" method="post">
                     <div class="register-top-grid">
-                        <h3>PERSONAL INFORMATION</h3>
+                        <h3>INFORMAÇÃO PESSOAL</h3>
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <span>Full Name<label>*</label></span>
-                            <input type="text" name="Username" placeholder="Enter User Username" required="" />
+                            <span>Nome Completo<label>*</label></span>
+                            <input type="text" name="Username" placeholder="O Teu Nome Completo" required="required" maxlength="200"/>
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
-                            <span>Address<label>*</label></span>
-                            <input type="text" name="Address" placeholder="Enter Your Full Address" required="" />
+                            <span>Morada Completa<label>*</label></span>
+                            <input type="text" name="Address" placeholder="A Tua Morada Completa" required="required" maxlength="200" />
                         </div>
                         <div class="clearfix"> </div>
                         <a class="news-letter" href="#">
-                            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+                            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Inscrever na Newsletter</label>
                         </a>
                     </div>
                     <div class="register-bottom-grid">
-                        <h3>LOGIN INFORMATION</h3>
+                        <h3>INFORMAÇÃO DA SESSÃO</h3>
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <input type="password" name="Password" placeholder="Enter Password" required="" id="myInput" min="8" max=" = " 16" />
+                            <input type="password" name="Password" placeholder="Escreve uma Password" required="required" id="myInput" min="8" max= " 16" />
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
-                            <input type="email" name="Email" placeholder="Enter Email" required="" min="8" max=" = " 16" />
+                            <input type="email" name="Email" placeholder="Escreve o teu Email" required="required" max= " 50" />
                         </div>
                         <div>
                             <input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
-                            <label class="check" for="check3">Show password</label>
+                            <label class="check" for="check3">Mostrar password</label>
                         </div>
                         <div class="clearfix">
-                            <a class ="forgot" href="/Account/Login">Have an account? Login</a>
+                            <a class ="forgot" href="/Account/Login">Já tens conta? Entra</a>
                         </div>
                     </div>
-                </form>
-                <div class="clearfix"> </div>
-                <div class="register-but">
-                    <form>
-                        <input type="submit" value="submit">
+                    <div class="clearfix"> </div>
+                    <div class="login-right">
+                        <input type="submit" value="Registar"></div>
                         <div class="clearfix"> </div>
                     </form>
                 </div>
