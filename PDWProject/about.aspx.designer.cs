@@ -11,7 +11,7 @@ namespace PDWProject
 {
 
 
-    public partial class Checkout
+    public partial class about
     {
 
         /// <summary>
@@ -22,23 +22,5 @@ namespace PDWProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder cart;
-
-        /// <summary>
-        /// cart_items control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder cart_items;
-
-        /// <summary>
-        /// compras control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder compras;
     }
 }

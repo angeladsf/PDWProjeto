@@ -28,7 +28,7 @@ namespace PDWProject
             try
             {
                 HttpCookie myCookie = Request.Cookies["myCookie"];
-                var dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
+                var dateAsString = DateTime.Now.Date.ToString("yyyy-MM-dd");
                 cmd.CommandText = "insert into compra(Date, email, id_kart) values('" + dateAsString + "','" + myCookie.Values["email"] + "','" + Request.QueryString["id"] + "')";
                 dr = cmd.ExecuteReader();
             }

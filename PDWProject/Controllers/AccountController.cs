@@ -40,7 +40,7 @@ namespace PDWProject.Controllers
             connectionString();
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "select * from cliente where email = '" + acc.Email + "' and password = '" + acc.Password + "'";
+            cmd.CommandText = "select name, password, Admin, address, email from cliente where email = '" + acc.Email + "' and password = '" + acc.Password + "'";
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
@@ -52,6 +52,7 @@ namespace PDWProject.Controllers
                 }
                 HttpCookie myCookie = new HttpCookie("myCookie");
                 myCookie.Values.Add("email", acc.Email);
+                myCookie.Values.Add("Admin", dr["Admin"].ToString());
                 myCookie.Expires = DateTime.Now.AddHours(12);
                 Response.Cookies.Add(myCookie);
                 con.Close();

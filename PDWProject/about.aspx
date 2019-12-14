@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buy.aspx.cs" Inherits="PDWProject.buy" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="about.aspx.cs" Inherits="PDWProject.about" %>
 
 <!DOCTYPE html>
 
@@ -18,6 +18,8 @@
 		<!----webfonts--->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600' rel='stylesheet' type='text/css'>
 		<!---//webfonts--->
+
+
 	</head>
 	<body>
 	<!-- container -->
@@ -26,11 +28,12 @@
 			<div class="container">
 				<div class="top-header-left">
 					<ul>
-						<li class="active"><a href ="checkout.aspx">Checkout</a></li>
+						<li ><a>Checkout</a></li>
 						<div class="clearfix"> </div>
 					</ul>
 				</div>
 				<div class="top-header-center">
+                    <asp:PlaceHolder ID ="cart" runat="server"></asp:PlaceHolder>
 				</div>
 				<div class="top-header-right">
 					<ul>
@@ -40,7 +43,7 @@
 								<input type="submit" value="" />
 							</form>
 						</li>
-						<li><a href="Account/Login">Sair</a></li>
+						<li><a style="border-right:none;" href="Account/Login">Sair</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -53,9 +56,9 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li class="active"><a href="Account/Index">Início</a></li>
+					<li ><a href="Account/Index">Início</a></li>
 					<li><a href="products.aspx">Produtos</a></li>
-					<li><a href="about.aspx">Soubre Nós</a></li>
+					<li class="active"><a href="about.aspx">Sobre Nós</a></li>
 					<div class="clearfix"> </div>
 				</ul>
 			</div>	
@@ -78,12 +81,22 @@
 		</div>
 		<!-- /main-menu -->
 	<!---start-content----->
-	<div class="check-out">
-         <div class="container">
-             <h4 class='title'>Compra efetuada com sucesso!</h4>
-             <p>Tens até 12h para cancelares a compra.</p>
-    	   </div>
+	<div class="about">
+		<div class="container">
+			<h3>About</h3>
+			<img src="images/about.jpg" class="img-responsive" title="image-name" />
+			<p>A Sweet Cakes é uma pastelaria fundada em 2019 na Covilhã, com a sede também na Covilhã. 
+                Foi criada por duas estudantes de Informática Web na Beira Interior, que  decidiram mudar de 
+                carreira no terceiro ano, o último da licenciatura, devido ao cansaso causado pelos trabalhos e 
+                longo tempo em frente ao computador.
+			</p>
+			<p>São as nossas cake designers principais. Os seus colegas juntaram-se à pastelaria
+              e contamos, neste momento, com mais de 15 cake designers a tempo inteiro. Como eram estudantes de 
+                informática, não demorou muito para abrirem a loja online. 
+
+			</p>
 		</div>
+	</div>
 	<!-- footer -->
 	<div class="footer">
 		<div class="container">

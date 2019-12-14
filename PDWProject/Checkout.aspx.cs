@@ -16,9 +16,13 @@ namespace PDWProject
         MySqlCommand cmd = new MySqlCommand();
         MySqlCommand cmd1 = new MySqlCommand();
         MySqlCommand cmd2 = new MySqlCommand();
+        MySqlCommand cmd3 = new MySqlCommand();
+        MySqlCommand cmd5 = new MySqlCommand();
         MySqlDataReader dr;
         MySqlDataReader dr1;
         MySqlDataReader dr2;
+        MySqlDataReader dr3;
+        MySqlDataReader dr5;
 
         void connectionString()
         {
@@ -36,6 +40,7 @@ namespace PDWProject
             string test = Request.QueryString["quantidade"].ToString();
             return test;
         }
+
 
         public string getDes()
         {
@@ -55,24 +60,50 @@ namespace PDWProject
             
         }
 
+
+        bool isit = false;
+
         protected static List<String> items = new List<String>();
         StringBuilder build = new StringBuilder();
         StringBuilder addToCart = new StringBuilder();
+        StringBuilder ifisadmin = new StringBuilder();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             connectionString();
             con.Open();
             cmd.Connection = con;
-            
+            cmd2.Connection = con;
+
+
+        
+
+
             if (Request.QueryString["cakeid"] != null)
             {
                 insertBolo();
                 Response.Redirect("~/checkout.aspx");
             }
 
+
+            if (Request.QueryString["concluirCompra"] != null)
+            {
+                cmd2.CommandText = "Delete from compra where id_kart = " + Request.QueryString["concluirCompra"].ToString();
+                dr2 = cmd2.ExecuteReader();
+                Response.Redirect("~/checkout.aspx");
+            }
+
+            if (Request.QueryString["cancelarCompra"] != null)
+            {
+                cmd2.CommandText = "Delete from compra where id_kart = " + Request.QueryString["cancelarCompra"].ToString();
+                dr2 = cmd2.ExecuteReader();
+                Response.Redirect("~/checkout.aspx");
+            }
+
+
             try
             {
+
                 HttpCookie myCookie = Request.Cookies["myCookie"];
                 
                 cmd.CommandText = "select id, name, price, cakeid, carrinho.email, imagepath, quant,id_bolo, description from carrinho" +
@@ -94,6 +125,8 @@ namespace PDWProject
                     totalcart += price;
                 }
 
+
+
                 build.Append("<p><span class='cart'></span>Carrinho<label>" + totalcart + "€</label></p>");
                 con.Close();
                 cart.Controls.Add(new Literal { Text = build.ToString() });
@@ -101,6 +134,60 @@ namespace PDWProject
             }
             catch
             {
+                con.Close();
+            }
+
+            try {
+                con.Open();
+                
+                cmd3.Connection = con;
+                
+                
+                HttpCookie myCookie = Request.Cookies["myCookie"];
+
+                cmd3.CommandText = "select date, compra.email as emailc, address, cliente.email, id_kart, cakeid, id,id_bolo, quant, tipos_bolos.name as nameb, " +
+                    "price, description from compra inner join carrinho on id = id_kart inner join tipos_bolos on carrinho.id_bolo = tipos_bolos.cakeid" +
+                    " inner join cliente on compra.email = cliente.email";
+                dr3 = cmd3.ExecuteReader();
+
+                
+
+                ifisadmin.Append("<br><br><h2 class='title'>Compras</h2><br>");
+                ifisadmin.Append("<table class = 'admintable'>");
+                ifisadmin.Append("<thead><tr><th>Data</th><th>Email</th><th>Morada</th><th>Bolo</th><th>Quantidade</th><th>Descrição</th><th>Preço</th></tr></thead>");
+
+                while (dr3.Read())
+                {
+                    ifisadmin.Append("<tbody><tr>");
+                    ifisadmin.Append("<td>" + dr3["date"].ToString().Split(' ')[0] + "</td>");
+                    ifisadmin.Append("<td>" + dr3["emailc"].ToString() + "</td>");
+                    ifisadmin.Append("<td>" + dr3["address"].ToString() + "</td>");
+                    ifisadmin.Append("<td>" + dr3["nameb"].ToString() + "</td>");
+                    ifisadmin.Append("<td>" + dr3["quant"].ToString() + "</td>");
+                    ifisadmin.Append("<td>" + dr3["description"].ToString() + "</td>");
+                    ifisadmin.Append("<td>" + (float.Parse(dr3["quant"].ToString()) * float.Parse(dr3["price"].ToString())).ToString() + "</td>");
+                ifisadmin.Append("</tr>" +
+                    "<tr><td colspan = '7' align='center' id = 'sp'>" +
+                    "<form style='display:inline;' action = 'checkout.aspx' method = 'GET' >"
+                + "<input style='display:none;' type='text' name = 'concluircompra' value = '" + dr3["id_kart"].ToString() + "'/><input class = 'new_input' type='submit' value = 'Concluir Compra'></form>"
+                + "&nbsp&nbsp<form style='display:inline;' action = 'checkout.aspx' method = 'GET'><input style='display:none;' type='text' name = 'cancelarcompra' value = '" + dr3["id_kart"].ToString() + "'/><input type='submit' class = 'new_input' value = 'Cancelar Compra'></form>" +
+                    "</td>");
+                    ifisadmin.Append("</tr>");
+
+                }
+                ifisadmin.Append("</tbody></table>");
+
+                
+                if (myCookie.Values["Admin"] == "1") {
+                    cart_items.Controls.Add(new Literal { Text = ifisadmin.ToString() });
+                }
+
+                con.Close();
+                
+
+            }
+            catch (Exception exception){
+                Console.WriteLine(exception.ToString());
                 con.Close();
             }
 

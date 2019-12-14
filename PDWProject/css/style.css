@@ -118,6 +118,8 @@ body a{
 .top-header-right ul li a:hover,.top-header-right ul li.active a{
 	color:#ff8db2;
 }
+
+
 .main-menu{
 	background: url(../images/nav-bg.png) repeat-x 0px 0px;
 	margin-top: 6em;
@@ -3110,3 +3112,4 @@ p.prod-desc {
 padding: 3% 0 4% 0;
 }
 }
+
