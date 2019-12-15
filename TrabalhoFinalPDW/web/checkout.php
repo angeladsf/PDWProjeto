@@ -226,7 +226,7 @@ print("</tbody></table>");
 				</div>
 				<div class="col-md-3 customer">
 					<h4>Serviço ao Cliente</h4>
-					<p>Caso algum problema, contartar por</p>
+					<p>Caso algum problema, contactar por</p>
 					<h4>Teelefone</h4>
 					<h6>916668905</h6>
 					<h4>Email</h4>
