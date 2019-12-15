@@ -1,7 +1,3 @@
-<?php
-	session_start();
-	$connect = mysqli_connect("localhost", "root", "", "pdw");
-?>
 
 
 
@@ -39,15 +35,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li>
 								<?php
 									session_start();
-									echo "Bem vindo(a) " . $_SESSION['email'] . "!";
-									echo "<a href='logout.php'>Logout"
+									echo "<a href='logout.php'>Logout";
 								?>
 							</li>
 							<div class="clearfix"> </div>
 						</ul>
 					</div>
 					<div class="top-header-center">
-						<p><span class="cart"> </span>Carrinho<label>0€</label></p>
+					<p><span class='cart'></span>Carrinho<label>" + totalcart + "€</label></p>
 					</div>
 					<div class="top-header-right">
 						<ul>
@@ -93,51 +88,51 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="check-out">
          <div class="container">
 			 
-    	     <h4 class="title">O carrinho de compras está vazio</h4>
-    	     <p class="cart">Não tem itens no seu carrinho de compras!<br>Clique <a href="products.php"> aqui</a> para continuar a comprar.</p>
+    	     <h4 class="title">Carrinho de Compras</h4>
+    	     
     	   </div>
 		</div>
 	<!-- footer -->
 	<div class="footer">
-			<div class="container">
-				<div class="footer-top">
-					<div class="col-md-3 location">
-						<h4>Localização</h4>
-						<p>#28 Rua Marquês de Ávila e Bolama, Covilhã, Portugal</p>
-						<h4>Horário</h4>
-						<p>Durante a semana:  07:00h-19:00h.</p>
-						<p>Fins-de-Semana: 08:00h-19h:00h.</p>
-						<p>Telefone para informações sobre horários de feriados.</p>
-					</div>
-					<div class="col-md-3 customer">
-						<h4>Apoio ao cliente</h4>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. </p>
-						<h4>Telefone</h4>
-						<h6>275935684</h6>
-						<h4>Contacte-nos.</h4>
-						<h6>Mais informações em: <a href="contact.php"/>Contacto</a></h6>
-					</div>
-					<div class="col-md-3 social">
-						<h4>Redes Sociais</h4>
-						<div class="face-b">
-							<img src="images/foot.png" title="name"/>
-							<a href="#"><i class="fb"> </i></a>
-						</div>
-						<div class="twet">		
-							<img src="images/foot.png" title="name"/>
-								<a href="#"><i class="twt"> </i></a>
-						</div>	
-					</div>
-					<div class="col-md-3 sign">
-						<h4>Receba as nossas notícias:</h4>	
-							<form>
-								<input type="text" class="text" value="EMAIL" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'YOUR EMAIL ';}">
-							</form>
-					</div>
-						<div class="clearfix"> </div>
+		<div class="container">
+			<div class="footer-top">
+				<div class="col-md-3 location">
+					<h4>Local</h4>
+					<p>Covilhã</p>
+					<h4>Horário</h4>
+					<p>Dias da Semana 8h-18h</p>
+					<p>Fins de Semana 8h-17h</p>
+					<p>Telefonar nos feriados</p>
 				</div>
+				<div class="col-md-3 customer">
+					<h4>Serviço ao Cliente</h4>
+					<p>Caso algum problema, contartar por</p>
+					<h4>Teelefone</h4>
+					<h6>916668905</h6>
+					<h4>Email</h4>
+					<h6>sweet@bakery.com</h6>
+				</div>
+				<div class="col-md-3 social">
+					<h4>Redes Sociais</h4>
+					<div class="face-b">
+						<img src="images/foot.png" title="name"/>
+						<a href="http://www.facebook.com"><i class="fb"> </i></a>
+					</div>
+					<div class="twet">		
+						<img src="images/foot.png" title="name"/>
+							<a href="http://twitter.com"><i class="twt"> </i></a>
+					</div>	
+				</div>
+				<div class="col-md-3 sign">
+                    <h4>Encomendas pagas na entrega por multibanco ou dinheiro.</h4>
+				</div>
+					<div class="clearfix"> </div>
+			</div>
+			<div class="footer-bottom">
+				<p>Trabalho realizado por Ângela Ferreira e Beatriz Herculano</p>
 			</div>
 		</div>
+	</div>
 	<!-- /footer -->
 	</body>
 </html>

@@ -1,3 +1,27 @@
+<?php
+class PHP{
+	public $connect;
+	$connect = mysqli_connect("localhost", "root", "", "pdw");
+
+	if(!$connect){
+		die("Conexão falhada: ". mysqli_connect_error());
+	}
+
+	//get product from the database
+	public function getData(){
+	$sql = "SELECT * FROM tipos_bolos";
+	$result = mysqli_query($connect, $sql);
+
+	if(mysqli_num_rows($result)>0){
+		return $result;
+	}
+}
+}
+?>
+
+
+
+
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -84,7 +108,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- service -->
 <div class="biseller-info">
 <div class="container">
-<h2>Products</h2>
+<h2>Produtos</h2>
 <h3 class="new-models">Novas variedades</h3>
 			<ul id="flexiselDemo3">
 				<li>
