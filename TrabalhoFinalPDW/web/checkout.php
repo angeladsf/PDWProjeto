@@ -35,7 +35,49 @@ session_start();
 		<!----webfonts--->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600' rel='stylesheet' type='text/css'>
 		<!---//webfonts--->
+
+		<style>
+            th, td {
+                padding: 15px;
+            }
+
+            tbody td:not(#sp), tbody th{
+              border: 1px solid #ff8db2;
+            }
+
+            
+
+            tr:nth-child(odd) td{
+                text-align:left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #ffede9;
+                
+            }
+
+
+            tbody tr:nth-child(even){
+                border-bottom: 2px solid #FF3E91;
+            }
+
+
+
+            thead {
+                background-color:#fc6391;
+                color:white;  
+            }
+
+                thead th, thead, td {
+                    border:none;
+                }
+            table {
+                border: 2px solid #FF3E91;
+            }
+
+        </style>
 	</head>
+
 	<body>
 	<!-- container -->
 		<!-- top-header -->

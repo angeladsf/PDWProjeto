@@ -53,9 +53,9 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li><a href="Account/Index">Início</a></li>
-					<li class="active"><a href="Products.aspx">Produtos</a></li>
-					<li><a href="about.aspx">Sobre Nós</a></li>
+					<li><a href="Index.php">Início</a></li>
+					<li class="active"><a href="Products.php">Produtos</a></li>
+					<li><a href="about.php">Sobre Nós</a></li>
 					<div class="clearfix"> </div>
 				</ul>
 			</div>	
