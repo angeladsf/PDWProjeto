@@ -1,13 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-
-<?php
-		$connect = mysqli_connect("localhost", "root", "", "pdw");
-?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -33,40 +23,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="top-header-left">
 						<ul>
 						<li>
-								<?php
-									session_start();
-									echo "<a href='logout.php'>Logout";
-								?>
+							<a href='checkout.php'>Checkout</a>
 							</li>
 							<div class="clearfix"> </div>
 						</ul>
 					</div>
 					<div class="top-header-center">
-						<p><a href='checkout.php'><span class="cart"> </span>Carrinho</a></p>
-						<?php
-							$query =  "select nome, preço, cakeid, imagepath from tipos_bolos";
-							$result = mysqli_query($connect, $query);
-						
-			
-							echo ("<div class='best-seller'><div class='container'><div class='biseller-info'><h3 class='new-models'>Variedades</h3><ul id = 'flexiselDemo1' >");
-							while ($dr = mysqli_fetch_array($result))
-							{ 
-								echo("<li><div class='biseller-column'>");
-								echo("<img src = '" + $dr["imagepath"] + "' alt = '' class = 'produto'>");
-								echo("<div class='biseller-name'><h4>");
-								echo($dr["nome"]);
-								echo("</h4><p>");
-								echo($dr["preço"]);
-								echo("</p></div>");
-							   echo("<a href ='cakeinfo.aspx?cakeid=" + $dr["cakeid"] + "'><button class='add2cart'><span>Adicionar ao Carrinho</span></button></a></div></li>");
-							}
-							echo("</ul></div></div>");
-						?>
 					</div>
 					<div class="top-header-right">
 						<ul>
-							<li><a href="login.php">Login</a></li>
-							<li><a href="register1.php">Registo</a></li>
+							<li><a href='logout.php'>Logout</a></li>
 							
 						</ul>
 					</div>
@@ -80,9 +46,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
+					<li><a href="index.php">Index</a></li>
 					<li><a href="products.php">Produtos</a></li>
-					<li class="active"><a href="about.php">Sobre</a></li>
-					<li><a href="contact.php">Contacto</a></li>
+					<li class = "active"><a href="about.php">Sobre</a></li>
 					<div class="clearfix"> </div>
 				</ul>
 			</div>	
