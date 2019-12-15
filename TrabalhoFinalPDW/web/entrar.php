@@ -8,7 +8,7 @@
         
             $host = "localhost";
             $dbusername = "root";
-            $dbpassword = "";
+            $dbpassword = "123";
             $dbname = "pdw";
 
             $dbcon = new mysqli($host, $dbusername, $dbpassword, $dbname);
@@ -23,11 +23,10 @@
             }
             else{
                 if($row['Email'] == $email && $row['Password'] == $psword){ 
-            
-                    if( isset($_POST['remember'])){
-                        setcookie('email', $email, time()*60*60);
-                        setcookie('pass', $psword, time()*60*60);
-                    }
+
+                    setcookie('email', $email, time()*60*60);
+                    setcookie('pass', $psword, time()*60*60);
+
                     session_start();
                         $_SESSION['email'] = $email;
                         $_SESSION['pass'] = $psword;

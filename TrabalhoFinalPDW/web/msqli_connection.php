@@ -1,7 +1,7 @@
 <?php
 // First we define the constants: #1
 DEFINE ('DB_USER', 'root');
-DEFINE ('DB_PASSWORD', '');
+DEFINE ('DB_PASSWORD', '123');
 DEFINE ('DB_HOST', 'localhost');
 DEFINE ('DB_NAME', 'pdw');
 // Next we assign the database connection to a variable that we will call $dbcon: #2

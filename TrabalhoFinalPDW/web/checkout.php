@@ -1,12 +1,23 @@
+<?php
 
+session_start();
+	$host = "localhost";
+	$dbusername = "root";
+	$dbpassword = "123";
+	$dbname = "pdw";
 
+	$dbcon = new mysqli($host, $dbusername, $dbpassword, $dbname);
+	
 
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+	$email = $_SESSION['email'];
+
+	$query =  "select admin from cliente where email='".$email."';";
+	$result = mysqli_query($dbcon, $query);
+	$row = mysqli_fetch_array($result);
+
+	$_SESSION["admin"] = $row['admin']; 
+
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -33,21 +44,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="top-header-left">
 						<ul>
 						<li>
-								<?php
-									session_start();
-									echo "<a href='logout.php'>Logout";
-								?>
+								<a href = "checkout.php">Checkout</a>
 							</li>
 							<div class="clearfix"> </div>
 						</ul>
 					</div>
 					<div class="top-header-center">
-					<p><span class='cart'></span>Carrinho<label>" + totalcart + "€</label></p>
+					<p><span class='cart'></span>Carrinho<label>" <?php $totalcart ?>"€</label></p>
 					</div>
 					<div class="top-header-right">
 						<ul>
-							<li><a href="login.php">Login</a></li>
-							<li><a href="register1.php">Registo</a></li>
+						<li>
+						<a href='logout.php'>Logout</a>
+						</li>
 						</ul>
 					</div>
 					<div class="clearfix"> </div>
@@ -89,7 +98,76 @@ License URL: http://creativecommons.org/licenses/by/3.0/
          <div class="container">
 			 
     	     <h4 class="title">Carrinho de Compras</h4>
-    	     
+
+
+<?php
+
+
+if (isset($_GET["cakeid"])){
+	$query = "insert into carrinho(id_bolo, email, quant, description)  values('" + $_GET["cakeid"] + "', '" + $_SESSION["email"] + "', '" + $_GET["quantidade"] + "', '" + $_GET["description"]  + "');";
+	$result = mysqli_query($dbcon, $query);
+	header("Location: checkout.php");
+}
+
+
+if (isset($_GET["concluirCompra"])){
+	$query = "Delete from compra where id_kart = ".$_GET["concluirCompra"];
+	$result = mysqli_query($dbcon, $query);
+	header("Location:checkout.php");
+}
+
+if (isset($_GET["cancelarCompra"])){
+	$query = "Delete from compra where id_kart = ".$_GET["cancelarCompra"];
+	$result = mysqli_query($dbcon, $query);
+	header("Location:checkout.php");
+}
+
+
+$query = "select id, name, price, cakeid, carrinho.email, imagepath, quant,id_bolo, description from carrinho inner join tipos_bolos on cakeid = id_bolo where carrinho.email = '".$_SESSION["email"]."' and id not in (select id_kart from compra)";
+$result = mysqli_query($dbcon, $query);
+
+$totalcart = 0;
+while ($dr = mysqli_fetch_array($result))
+{
+$price = floatval($dr["quant"]) * floatval($dr["price"]);
+print("<img style='float:left; width:150px; height:auto; margin-right:10px;' src='".$dr["imagepath"]."' alt=''>");
+print("<h5>".$dr["quant"]." unidades de ".$dr["name"]." por ".$price."€<br><div style='width:80%; word-wrap:break-word;'>Descrição:".$dr["description"]."</div></h5><form style='display:inline;' action = 'buy.php' method = 'GET' ><input style='display:none;' type='text' name = 'id' value = '".$dr["id"]."'/><input class = 'new_input' type='submit' value = 'Comprar'></form>&nbsp&nbsp<form style='display:inline;' action = 'remove.php' method = 'GET' ><input style='display:none;' type='text' name = 'id' value = '".$dr["id"]."'/><input type='submit' class = 'new_input' value = 'Remover Pedido'></form><br><br>");
+$totalcart += $price;
+}
+
+
+
+
+$query2 = "select date, compra.email as emailc, address, cliente.email, id_kart, cakeid, id,id_bolo, quant, tipos_bolos.name as nameb, price, description from compra inner join carrinho on id = id_kart inner join tipos_bolos on carrinho.id_bolo = tipos_bolos.cakeid inner join cliente on compra.email = cliente.email";
+$result2 = mysqli_query($dbcon, $query2);
+
+
+if ($_SESSION["admin"] == "1") {
+
+print("<br><br><h2 class='title'>Compras</h2><br>");
+print("<table class = 'admintable'>");
+print("<thead><tr><th>Data</th><th>Email</th><th>Morada</th><th>Bolo</th><th>Quantidade</th><th>Descrição</th><th>Preço</th></tr></thead>");
+
+while ($dr2 = mysqli_fetch_array($result2))
+{
+print("<tbody><tr>");
+print("<td>".$dr2["date"]."</td>");
+print("<td>".$dr2["emailc"]."</td>");
+print("<td>".$dr2["address"]."</td>");
+print("<td>".$dr2["nameb"]."</td>");
+print("<td>".$dr2["quant"]."</td>");
+print("<td>".$dr2["description"]."</td>");
+print("<td>".(floatval($dr2["quant"]) * floatval($dr2["price"]))."</td>");
+print("</tr><tr><td colspan = '7' align='center' id = 'sp'><form style='display:inline;' action = 'checkout.aspx' method = 'GET' ><input style='display:none;' type='text' name = 'concluircompra' value = '".$dr2["id_kart"]."'/><input class = 'new_input' type='submit' value = 'Concluir Compra'></form>&nbsp&nbsp<form style='display:inline;' action = 'checkout.aspx' method = 'GET'><input style='display:none;' type='text' name = 'cancelarcompra' value = '".$dr2["id_kart"]."'/><input type='submit' class = 'new_input' value = 'Cancelar Compra'></form></td>");
+print("</tr>");
+
+}
+print("</tbody></table>");
+
+}
+
+
+    	?>     
     	   </div>
 		</div>
 	<!-- footer -->
