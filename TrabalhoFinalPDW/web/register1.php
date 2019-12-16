@@ -42,7 +42,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="top-header-right">
 						<ul>
 						<li>
-						<a href='logout.php'>Logout</a>
+						<a href='login.php'>Login</a>
+						</li>
+						<li>
+						<a href='register1.php'>Registo</a>
 						</li>
 						</ul>
 					</div>

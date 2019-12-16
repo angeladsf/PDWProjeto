@@ -32,8 +32,7 @@
 					</div>
 					<div class="top-header-right">
 						<ul>
-							<li><a href='logout.php'>Logout</a></li>
-							
+						<li><a style="border-right:none" href="login.php">Sair</a></li>							
 						</ul>
 					</div>
 					<div class="clearfix"> </div>
@@ -46,7 +45,7 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li><a href="index.php">Início</a></li>
+					<li><a href="index2.php">Início</a></li>
 					<li><a href="products.php">Produtos</a></li>
 					<li class = "active"><a href="about.php">Sobre Nós</a></li>
 					<div class="clearfix"> </div>
@@ -64,7 +63,7 @@
 
 				<!-- logo -->
 				<div class="logo">
-					<a href="index.php"><img src="images/logo.png" title="Sweetcake" /></a>
+					<a href="index2.php"><img src="images/logo.png" title="Sweetcake" /></a>
 				</div>
 				<!-- logo -->
 			</div>

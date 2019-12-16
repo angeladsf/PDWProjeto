@@ -1,7 +1,7 @@
 <?php
 	$host = "localhost";
 	$dbusername = "root";
-	$dbpassword = "123";
+	$dbpassword = "";
 	$dbname = "pdw";
 
 	$dbcon = new mysqli($host, $dbusername, $dbpassword, $dbname);
@@ -41,7 +41,7 @@
 				<div class="top-header-right">
 					<ul>
 
-						<li><a href="Account/Login" style ="border-right:none;">Sair</a></li>
+						<li><a href="login.php" style ="border-right:none;">Sair</a></li>
 					</ul>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li><a href="Index.php">Início</a></li>
+					<li><a href="Index2.php">Início</a></li>
 					<li class="active"><a href="Products.php">Produtos</a></li>
 					<li><a href="about.php">Sobre Nós</a></li>
 					<div class="clearfix"> </div>
@@ -71,7 +71,7 @@
 
 				<!-- logo -->
 				<div class="logo">
-					<a href="index.php"><img src="images/logo.png" title="Sweetcake" /></a>
+					<a href="index2.php"><img src="images/logo.png" title="Sweetcake" /></a>
 				</div>
 				<!-- logo -->
 			</div>
@@ -83,18 +83,18 @@
 <h2>Produtos</h2>
 
 <?php 
-$query =  "select name, price, cakeid, imagepath from tipos_bolos";
+$query =  "select Nome, Preço, CakeID, ImagePath from tipos_bolos";
 $result = mysqli_query($dbcon, $query);
 echo ("<div class='best-seller'><div class='container'><div class='biseller-info'><h3 class='new-models'>Variedades</h3><ul id = 'flexiselDemo1' >");
 while ($dr = mysqli_fetch_array($result)){ 
 	echo("<li><div class='biseller-column'>");
-	echo("<img src = '".$dr["imagepath"]."' alt = '' class = 'produto'>");
+	echo("<img src = '".$dr["ImagePath"]."' alt = '' class = 'produto'>");
 	echo("<div class='biseller-name'><h4>");
-	echo($dr["name"]);
+	echo($dr["Nome"]);
 	echo("</h4><p>");
-	echo($dr["price"]);
+	echo($dr["Preço"]);
 	echo("</p></div>");
-   echo("<a href ='cakeinfo.aspx?cakeid=".$dr["cakeid"]."'><button class='add2cart'><span>Adicionar ao Carrinho</span></button></a></div></li>");
+   echo("<a href ='singlepage.php?cakeid=".$dr["CakeID"]."'><button class='add2cart'><span>Adicionar ao Carrinho</span></button></a></div></li>");
 }
 echo("</ul></div></div>");
 

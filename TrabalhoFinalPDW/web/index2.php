@@ -39,8 +39,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="top-header-right">
 						<ul>
-						<li><a href="login.php" style ="border-right:none;">Login</a></li>
-						<li><a href='register1.php'>Registo</a>
+						<li><a href="login.php" style ="border-right:none;">Sair</a></li>
 						</li>
 						</ul>
 					</div>
@@ -110,10 +109,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="slider-caption-left text-center">
 							<h1>ESTÁS À PROCURA DE BOLOS DOCES, SABOROSOS E CHEIOS DE ESTILO?</h1>
                             <p>NÃO TE PREOCUPES, NÓS AJUDAMOS! VÊ A SECÇÃO DOS PRODUTOS.</p>
-                            <a class="buy-btn" href="login.php">Compra agora</a>
+                            <a class="buy-btn" href="products.php">Compra agora</a>
                         </div>
                         <div class="slider-caption-right">
-                            <a href="login.php"><img src="images/iteam.png" class="img-responsive" title="name" /></a>
+                            <a href="#"><img src="images/iteam.png" class="img-responsive" title="name" /></a>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -184,7 +183,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- bottom-grids -->
 <div class="bottom-grids">
     <div class="container">
-        <div class="col-md-8 bottom-grid-left">
+    <div class="col-md-8 bottom-grid-left">
             <div class="col-md-3 bottom-grid-left-grid text-center">
                 <img src="images/pic2.jpg" title="name" />
                 <h4>Bolo de aniversário </h4>

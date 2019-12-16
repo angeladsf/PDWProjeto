@@ -57,13 +57,8 @@
 				</div>
 				<div class="top-header-right">
 					<ul>
-						<li>
-							<form>
-								<input type="text">
-								<input type="submit" value="" />
-							</form>
-						</li>
-						<li><a style="border-right:none" href="/Account/Login">Sair</a></li>
+						
+						<li><a style="border-right:none" href="login.php">Sair</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -76,7 +71,7 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li><a href="Index.php">Início</a></li>
+					<li><a href="Index2.php">Início</a></li>
 					<li class="active"><a href="products.php">Produtos</a></li>
 					<li><a href="about.php">Sobre Nós</a></li>
 					<div class="clearfix"> </div>
@@ -94,7 +89,7 @@
 
 				<!-- logo -->
 				<div class="logo">
-					<a href="index.php"><img src="images/logo.png" title="Sweetcake" /></a>
+					<a href="index2.php"><img src="images/logo.png" title="Sweetcake" /></a>
 				</div>
 				<!-- logo -->
 			</div>
@@ -113,20 +108,20 @@
 						<?php 	
 						$host = "localhost";
 						$dbusername = "root";
-						$dbpassword = "123";
+						$dbpassword = "";
 						$dbname = "pdw";
 
 						$dbcon = new mysqli($host, $dbusername, $dbpassword, $dbname);
 						session_start();
 							
 							
-							$queryt = "select name, price, cakeid, imagepath, ListaIngrediente from tipos_bolos where cakeid = ". $_GET["cakeid"];
+							$query = "select Nome, Preço, CakeID, ImagePath, ListaIngrediente from tipos_bolos where CakeID = ". $_GET["cakeid"];
 							$result = mysqli_query($dbcon, $query);
 
 							while ($dr = mysqli_fetch_array($result))
 							{
-								echo("<li><img class='etalage_thumb_image' style='height:50px;' src='" . $dr["imagepath"] . "' class='img-responsive'/>");
-								echo("<li><img class='etalage_source_image' style='height:50px;' src='" . $dr["imagepath"]. "' class='img-responsive'/>");
+								echo("<li><img class='etalage_thumb_image' style='height:50px;' src='" . $dr["ImagePath"] . "' class='img-responsive'/>");
+								echo("<li><img class='etalage_source_image' style='height:50px;' src='" . $dr["ImagePath"]. "' class='img-responsive'/>");
 								echo("</li><div class='clearfix'> </div></ul><div class = 'det_nav'><h4>Ingredientes:</h4><h5>" . $dr["ListaIngrediente"]. "</h5></div>");
 							}
 							?>
@@ -144,12 +139,12 @@
 					
 					<?php
 
-					$query = "select name, price, cakeid, imagepath, ListaIngrediente from tipos_bolos where cakeid = ". $_["cakeid"];
+					$query = "select Nome, Preço, CakeID, ImagePath, ListaIngrediente from tipos_bolos where CakeID = ". $_GET["cakeid"];
 					$result = mysqli_query($dbcon, $query);
 					while ($dr = mysqli_fetch_array($result))
 					{
-						echo("<h3>" . dr["name"]. "</h3>");
-						echo("<p>".dr["price"]. "€ <font color='#aaa' size='4'>/unidade</font></p>");
+						echo("<h3>" . $dr["Nome"]. "</h3>");
+						echo("<p>".$dr["Preço"]. "€ <font color='#aaa' size='4'>/unidade</font></p>");
 					}
 
                     ?>
@@ -171,7 +166,7 @@
 								 
 								<?php
 								 
-								 $query = "select name, price, cakeid, imagepath, ListaIngrediente from tipos_bolos where cakeid = ". $_GET["cakeid"];
+								 $query = "select Nome, Preço, CakeID, ImagePath, ListaIngrediente from tipos_bolos where CakeID = ". $_GET["cakeid"];
 									$result = mysqli_query($dbcon, $query);
 
 									while ($dr = mysqli_fetch_array($result))

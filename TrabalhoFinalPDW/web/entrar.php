@@ -8,7 +8,7 @@
         
             $host = "localhost";
             $dbusername = "root";
-            $dbpassword = "123";
+            $dbpassword = "";
             $dbname = "pdw";
 
             $dbcon = new mysqli($host, $dbusername, $dbpassword, $dbname);
@@ -30,7 +30,7 @@
                     session_start();
                         $_SESSION['email'] = $email;
                         $_SESSION['pass'] = $psword;
-                        header("Location: index.php");
+                        header("Location: index2.php");
                         exit();
                     
                 }
