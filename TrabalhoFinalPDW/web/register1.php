@@ -27,33 +27,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			
 	<!-- container -->
 	
-		<!-- top-header -->
-		<div class="top-header">
-			<div class="container">
-				<div class="top-header-left">
-					<ul>
-					<li>
-								<?php
-									session_start();
-									echo "Bem vindo(a) " . $_SESSION['email'] . "!";
-									echo "<a href='logout.php'>Logout"
-								?>
+	<div class="top-header">
+				<div class="container">
+					<div class="top-header-left">
+						<ul>
+						<li>
+								<a href = "checkout.php">Checkout</a>
 							</li>
-						<div class="clearfix"> </div>
-					</ul>
+							<div class="clearfix"> </div>
+						</ul>
+					</div>
+					<div class="top-header-center">
+					</div>
+					<div class="top-header-right">
+						<ul>
+						<li>
+						<a href='logout.php'>Logout</a>
+						</li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
 				</div>
-				<div class="top-header-center">
-					<p><a href='checkout.php'><span class="cart"> </span>Carrinho</a><label>0€</label></p>
-				</div>
-				<div class="top-header-right">
-					<ul>
-						<li><a href="login.php">Login</a></li>
-						<li class="active"><a href="register1.php">Registo</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"> </div>
 			</div>
-		</div>
 		<!-- /top-header -->
 		<!-- main-menu -->
 		<div class="main-menu">
@@ -61,9 +56,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="head-nav">
 					<span class="menu"> </span>
 					<ul>
+						<li><a href="index.php">Início</a></li>
 						<li><a href="products.php">Produtos</a></li>
-						<li><a href="about.php">Sobre</a></li>
-						<li><a href="contact.php">Contacto</a></li>
+						<li><a href="about.php">Sobre Nós</a></li>
 						<div class="clearfix"> </div>
 					</ul>
 				</div>	
@@ -130,48 +125,47 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	    </div>
         </div>
 
-	<!-- footer -->
-	<div class="footer">
-		<div class="container">
+	<!-- footer -->	<div class="footer">
+	<div class="container">
 			<div class="footer-top">
 				<div class="col-md-3 location">
-					<h4>Localização</h4>
-					<p>#28 Rua Marquês de Ávila e Bolama, Covilhã, Portugal</p>
+					<h4>Local</h4>
+					<p>Covilhã</p>
 					<h4>Horário</h4>
-					<p>Durante a semana:  07:00h-19:00h.</p>
-					<p>Fins-de-Semana: 08:00h-19h:00h.</p>
-					<p>Telefone para informações sobre horários de feriados.</p>
+					<p>Dias da Semana 8h-18h</p>
+					<p>Fins de Semana 8h-17h</p>
+					<p>Telefonar nos feriados</p>
 				</div>
 				<div class="col-md-3 customer">
-					<h4>Apoio ao cliente</h4>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. </p>
+					<h4>Serviço ao Cliente</h4>
+					<p>Caso algum problema, contactar por</p>
 					<h4>Telefone</h4>
-					<h6>275935684</h6>
-					<h4>Contacte-nos.</h4>
-					<h6>Mais informações em: <a href="contact.php"/>Contacto</a></h6>
+					<h6>916668905</h6>
+					<h4>Email</h4>
+					<h6>sweet@bakery.com</h6>
 				</div>
 				<div class="col-md-3 social">
 					<h4>Redes Sociais</h4>
 					<div class="face-b">
 						<img src="images/foot.png" title="name"/>
-						<a href="#"><i class="fb"> </i></a>
+						<a href="http://www.facebook.com"><i class="fb"> </i></a>
 					</div>
 					<div class="twet">		
 						<img src="images/foot.png" title="name"/>
-							<a href="#"><i class="twt"> </i></a>
+							<a href="http://twitter.com"><i class="twt"> </i></a>
 					</div>	
 				</div>
 				<div class="col-md-3 sign">
-					<h4>Receba as nossas notícias:</h4>	
-						<form>
-							<input type="text" class="text" value="EMAIL" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'YOUR EMAIL ';}">
-						</form>
+                    <h4>Encomendas pagas na entrega por multibanco ou dinheiro.</h4>
 				</div>
 					<div class="clearfix"> </div>
 			</div>
+			<div class="footer-bottom">
+				<p>Trabalho realizado por Ângela Ferreira e Beatriz Herculano</p>
+			</div>
 		</div>
 	</div>
-    <!-- /footer -->
+	<!-- /footer -->
     
 	</body>
 </html>

@@ -46,9 +46,9 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li><a href="index.php">Index</a></li>
+					<li><a href="index.php">Início</a></li>
 					<li><a href="products.php">Produtos</a></li>
-					<li class = "active"><a href="about.php">Sobre</a></li>
+					<li class = "active"><a href="about.php">Sobre Nós</a></li>
 					<div class="clearfix"> </div>
 				</ul>
 			</div>	
@@ -101,7 +101,7 @@
 				</div>
 				<div class="col-md-3 customer">
 					<h4>Serviço ao Cliente</h4>
-					<p>Caso algum problema, contartar por</p>
+					<p>Caso algum problema, contactar por</p>
 					<h4>Teelefone</h4>
 					<h6>916668905</h6>
 					<h4>Email</h4>

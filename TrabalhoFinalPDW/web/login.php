@@ -23,30 +23,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</head>
 	<body>
 	<!-- container -->
-		<!-- top-header -->
-		<div class="top-header">
+	<div class="top-header">
 				<div class="container">
 					<div class="top-header-left">
 						<ul>
 						<li>
-								<?php
-									session_start();
-									
-									echo "Bem vindo(a) " . $_SESSION['email'] . "!";
-									echo "<a href='logout.php'>Logout"
-								?>
+								<a href = "checkout.php">Checkout</a>
 							</li>
 							<div class="clearfix"> </div>
 						</ul>
 					</div>
 					<div class="top-header-center">
-						<p><a href='checkout.php'><span class="cart"> </span>Carrinho</a><label>0€</label></p>
 					</div>
 					<div class="top-header-right">
-						
 						<ul>
-							<li class="active"><a href="login.php">Login</a></li>
-							<li><a href="register1.php">Registo</a></li>
+						<li>
+						<a href='logout.php'>Logout</a>
+						</li>
 						</ul>
 					</div>
 					<div class="clearfix"> </div>
@@ -59,9 +52,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="head-nav">
 					<span class="menu"> </span>
 					<ul>
+						<li><a href="index.php">Início</a></li>
 						<li><a href="products.php">Produtos</a></li>
-						<li><a href="about.php">Sobre</a></li>
-						<li><a href="contact.php">Contacto</a></li>
+						<li><a href="about.php">Sobre Nós</a></li>
 						<div class="clearfix"> </div>
 					</ul>
 				</div>	

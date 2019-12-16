@@ -3,7 +3,7 @@
 session_start();
 	$host = "localhost";
 	$dbusername = "root";
-	$dbpassword = "123";
+	$dbpassword = "";
 	$dbname = "pdw";
 
 	$dbcon = new mysqli($host, $dbusername, $dbpassword, $dbname);
@@ -140,9 +140,9 @@ $totalcart = $totalcart + $price;
 				<div class="head-nav">
 					<span class="menu"> </span>
 					<ul>
+						<li><a href="pindex.php">Início</a></li>
 						<li><a href="products.php">Produtos</a></li>
-						<li><a href="about.php">Sobre</a></li>
-						<li><a href="contact.php">Contacto</a></li>
+						<li><a href="about.php">Sobre Nós</a></li>
 						<div class="clearfix"> </div>
 					</ul>
 				</div>	

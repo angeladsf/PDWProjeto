@@ -57,7 +57,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li>
 								<?php
 									session_start();
-									echo "Bem vindo(a) " . $_SESSION['email'] . "!";
 									echo "<a href='logout.php'>Logout"
 								?>
 							</li>

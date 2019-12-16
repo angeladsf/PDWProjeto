@@ -1,7 +1,7 @@
 <?php
 	$host = "localhost";
 	$dbusername = "root";
-	$dbpassword = "123";
+	$dbpassword = "";
 	$dbname = "pdw";
 
 	$dbcon = new mysqli($host, $dbusername, $dbpassword, $dbname);
@@ -71,7 +71,7 @@
 
 				<!-- logo -->
 				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" title="Sweetcake" /></a>
+					<a href="index.php"><img src="images/logo.png" title="Sweetcake" /></a>
 				</div>
 				<!-- logo -->
 			</div>
@@ -177,8 +177,8 @@ echo("</ul></div></div>");
 				</div>
 				<div class="col-md-3 customer">
 					<h4>Serviço ao Cliente</h4>
-					<p>Caso algum problema, contartar por</p>
-					<h4>Teelefone</h4>
+					<p>Caso algum problema, contactar por</p>
+					<h4>Telefone</h4>
 					<h6>916668905</h6>
 					<h4>Email</h4>
 					<h6>sweet@bakery.com</h6>
