@@ -76,7 +76,7 @@
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li><a href="/Account/Index">Início</a></li>
+					<li><a href="Index.php">Início</a></li>
 					<li class="active"><a href="products.php">Produtos</a></li>
 					<li><a href="about.php">Sobre Nós</a></li>
 					<div class="clearfix"> </div>
@@ -110,19 +110,26 @@
 					<div class="grid images_3_of_2">
 						<ul id="etalage">
                             
+						<?php 	
+						$host = "localhost";
+						$dbusername = "root";
+						$dbpassword = "123";
+						$dbname = "pdw";
 
+						$dbcon = new mysqli($host, $dbusername, $dbpassword, $dbname);
+						session_start();
 							
 							
-							$queryt = "select name, price, cakeid, imagepath, ListaIngrediente from tipos_bolos where cakeid = ". getID();
+							$queryt = "select name, price, cakeid, imagepath, ListaIngrediente from tipos_bolos where cakeid = ". $_GET["cakeid"];
 							$result = mysqli_query($dbcon, $query);
 
 							while ($dr = mysqli_fetch_array($result))
 							{
-								echo("<li><img class='etalage_thumb_image' style='height:50px;' src=" . dr["imagepath"] . " class='img-responsive'/>");
-								echo("<li><img class='etalage_source_image' style='height:50px;' src=" . dr["imagepath"]. " class='img-responsive'/>");
-								echo("</li><div class='clearfix'> </div></ul><div class = 'det_nav'><h4>Ingredientes:</h4><h5>" . dr["ListaIngrediente"]. "</h5></div>");
+								echo("<li><img class='etalage_thumb_image' style='height:50px;' src='" . $dr["imagepath"] . "' class='img-responsive'/>");
+								echo("<li><img class='etalage_source_image' style='height:50px;' src='" . $dr["imagepath"]. "' class='img-responsive'/>");
+								echo("</li><div class='clearfix'> </div></ul><div class = 'det_nav'><h4>Ingredientes:</h4><h5>" . $dr["ListaIngrediente"]. "</h5></div>");
 							}
-							
+							?>
 							
 							
 
@@ -135,22 +142,22 @@
 				  <div class="desc1 span_3_of_2">
                     
 					
-					
+					<?php
 
-					$query = "select name, price, cakeid, imagepath, ListaIngrediente from tipos_bolos where cakeid = ". getID();
+					$query = "select name, price, cakeid, imagepath, ListaIngrediente from tipos_bolos where cakeid = ". $_["cakeid"];
 					$result = mysqli_query($dbcon, $query);
 					while ($dr = mysqli_fetch_array($result))
 					{
 						echo("<h3>" . dr["name"]. "</h3>");
-						echo("<p>"+dr["price"]. "€ <font color='#aaa' size='4'>/unidade</font></p>");
+						echo("<p>".dr["price"]. "€ <font color='#aaa' size='4'>/unidade</font></p>");
 					}
 
-                      
+                    ?>
 
 					<div class="det_nav1">
 								<h5 style="font-size:16px;color: #555555;text-transform: uppercase;">Descrição :</h5>
                                 <span>Alterações no bolo devido a alergias, decoração especial, forma, etc</span>
-								<form id ="form" method="get" action="Checkout.aspx">
+								<form id ="form" method="get" action="Checkout.php">
                                     <textarea name="description" rows="3" cols="55" maxlength="300"></textarea><br><br />
                                     <h5 style="font-size:16px;color: #555555;text-transform: uppercase;">Quantidade :</h5>
                                     
@@ -162,19 +169,19 @@
                                     <option value="5">5</option>
                                  
 								 
-
+								<?php
 								 
-								 $query = "select name, price, cakeid, imagepath, ListaIngrediente from tipos_bolos where cakeid = ". getID();
+								 $query = "select name, price, cakeid, imagepath, ListaIngrediente from tipos_bolos where cakeid = ". $_GET["cakeid"];
 									$result = mysqli_query($dbcon, $query);
 
 									while ($dr = mysqli_fetch_array($result))
 									{
 									   
-										echo("<input type = 'text' name = 'cakeid' style='display:none' value='" . getID()."' />");
+										echo("<input type = 'text' name = 'cakeid' style='display:none' value='" . $_GET["cakeid"]."' />");
 									   
 									}								 
 								 
-								 
+								 ?>
 								 
 								 
                                   </select><br><br>
@@ -184,7 +191,7 @@
                             var url = new URL(url_string);
                             var c = url.searchParams.get("cakeid");
                             var frm = document.getElementById('form');
-                            frm.action= "checkout.aspx?cakeid=" + c.toString();
+                            frm.action= "checkout.php?cakeid=" + c.toString();
                       </script>
 							
 							 <div class="clearfix"></div>
